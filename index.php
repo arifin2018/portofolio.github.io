@@ -34,9 +34,7 @@ $result = get_CURL($urlLatestVideo);
 $latestVideoID = $result['items'][0]['id']['videoId'];
 
 $clientID = '332268804688169';
-$accessTokent = 'IGQVJWaHZADVjlSSDk4aHZAFeG16RXNBV1BIR3Y2dmF4S01fQTJQNzI5cXU0bWM0c3EtYmJONGF6OUszZAlFlNFUwalotSGRIc29IRVJJLTJnb3gxbTlRekN2bTc4U3hDQ3QtWXdJTEd0RDVQOXBqRzhFYgZDZD';
-$tukarKode = 'curl -X POST \ http://arifinportofolio.rf.gd \ -F client_id=332268804688169 \ -F client_secret=eb8c7... \ -F grant_type=authorization_code \ -F redirect_uri=https://socialsizzle.herokuapp.com/auth/ \ -F code=AQDp3TtBQQ..'
-
+$access_token = 'AQD89Ym7l11u2DLBG9ArR-rx43dz52xiOiqp-dcLi3awhVa1sJTt478BPKmNEdmGfH3M0OA-d0M0iTw_Q73hnLXqVeaZyCo1t9Z4wzbYRLq7reYLiopoqMAZ843it3SqgLcVr2CXqlGusv66Oso-5th17p70wA79Xvl1LapeN-G4UbzMUEf-0ahQP1enVrxSZvvtRAx7iGe7yXIxSwLLklDznKWVjQdEHWlhA8cWBgq10w'
 
 ?>
 
