@@ -34,8 +34,20 @@ $result = get_CURL($urlLatestVideo);
 $latestVideoID = $result['items'][0]['id']['videoId'];
 
 $clientID = '332268804688169';
-$access_token = 'AQD89Ym7l11u2DLBG9ArR-rx43dz52xiOiqp-dcLi3awhVa1sJTt478BPKmNEdmGfH3M0OA-d0M0iTw_Q73hnLXqVeaZyCo1t9Z4wzbYRLq7reYLiopoqMAZ843it3SqgLcVr2CXqlGusv66Oso-5th17p70wA79Xvl1LapeN-G4UbzMUEf-0ahQP1enVrxSZvvtRAx7iGe7yXIxSwLLklDznKWVjQdEHWlhA8cWBgq10w'
+$access_token = 'IGQVJWRk5vY3hkYXdTTlo1X3d5LUI5ZAW1sUk5nQVRwNU83SzJNS3RTam4zcS02Rlo0RHJHTHB3WU5rcTFpMGRqdUN2ZAUdiSExNMU81ZAHBmX2dIa19EZAWFXMDNwNVFDVzI5aDhqZA2duQUluUEhRVlBQUgZDZD';
 
+//ambil data username foto dan followers
+$result = get_CURL("https://www.instagram.com/nrarivin/?__a=1");
+$usernameIG = $result['graphql']['user']['username'];
+$profilePictureIG = $result['graphql']['user']['profile_pic_url_hd'];
+$FollowersIG = $result['graphql']['user']['edge_followed_by']['count'];
+
+//ambil foto
+$result = get_CURL("https://graph.instagram.com/17841400734365185/media?fields=permalink,username,account_type&access_token=IGQVJWRk5vY3hkYXdTTlo1X3d5LUI5ZAW1sUk5nQVRwNU83SzJNS3RTam4zcS02Rlo0RHJHTHB3WU5rcTFpMGRqdUN2ZAUdiSExNMU81ZAHBmX2dIa19EZAWFXMDNwNVFDVzI5aDhqZA2duQUluUEhRVlBQUgZDZD");
+$ambilFoto = [];
+foreach ($result['data'] as $photo) {
+  $photos[] = $photo['permalink'];
+}
 ?>
 
 <!doctype html>
@@ -128,7 +140,7 @@ $access_token = 'AQD89Ym7l11u2DLBG9ArR-rx43dz52xiOiqp-dcLi3awhVa1sJTt478BPKmNEdm
             </div>
             <div class="col mb-1">
               <h5><?= $nameYT; ?></h5>
-              <p><?php echo $subscribeYT; ?></p>
+              <p><?php echo $subscribeYT; ?> Subscriber </p>
               <div class="g-ytsubscribe" data-channelid="UClLjSj3HkStDhICC2lr6zYQ" data-layout="default" data-theme="dark" data-count="hidden">
               </div>
             </div>
@@ -145,28 +157,21 @@ $access_token = 'AQD89Ym7l11u2DLBG9ArR-rx43dz52xiOiqp-dcLi3awhVa1sJTt478BPKmNEdm
         <div class="col-md-5">
           <div class="row">
             <div class="col-md-4 mb-3">
-              <img src="img/profile1.png" width="550" class="rounded-circle img-thumbnail">
+              <img src=<?= $profilePictureIG ?> width="550" class="rounded-circle img-thumbnail">
             </div>
             <div class="col-md-8">
-              <h5>@Nrarivin</h5>
-              <p>850 followers</p>
+              <h5><?= $usernameIG ?></h5>
+              <p><?= $FollowersIG ?> Followers </p>
             </div>
           </div>
 
           <div class="row">
             <div class="col">
-              <div class="ig-thumbnail mr-2">
-                <img src="img/thumbs/1.png">
-              </div>
-              <div class="ig-thumbnail mr-2">
-                <img src="img/thumbs/2.png">
-              </div>
-              <div class="ig-thumbnail mr-2">
-                <img src="img/thumbs/3.png">
-              </div>
-              <div class="ig-thumbnail mr-2">
-                <img src="img/thumbs/4.png">
-              </div>
+              <?php foreach ($photos as $photo) : ?>
+                <div class="ig-thumbnail mr-2">
+                  <img src="<?= $photo; ?>">
+                </div>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
