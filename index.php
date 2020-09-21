@@ -46,7 +46,12 @@ $photos = [];
 foreach ($result['data'] as $photo) {
   if ($photo['media_type'] == "IMAGE") {
     $photos[] = $photo['media_url'];
+  } else if ($photo['media_type'] == 'CAROUSEL_ALBUM') {
+    $photos[] = $photo['media_url'];
   }
+  // $photos[] = $photo['media_url'];
+  // $video[] = $photo['media_type'];
+
 }
 ?>
 
@@ -168,7 +173,7 @@ foreach ($result['data'] as $photo) {
           <div class="row">
             <div class="col">
               <?php foreach ($photos as $photo) : ?>
-                <div class="ig-thumbnail mr-2 mt-2">
+                <div class="ig-thumbnail mr-2">
                   <img src="<?= $photo; ?>">
                 </div>
               <?php endforeach; ?>
