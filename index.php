@@ -39,6 +39,8 @@ $result = get_CURL("https://www.instagram.com/nrarivin/?__a=1");
 $usernameIG = $result['graphql']['user']['username'];
 $profilePictureIG = $result['graphql']['user']['profile_pic_url_hd'];
 $FollowersIG = $result['graphql']['user']['edge_followed_by']['count'];
+print_r($result);
+die;
 
 //ambil foto
 $result = get_CURL("https://graph.instagram.com/me/media?fields=id%2Cmedia_url&access_token=IGQVJWRk5vY3hkYXdTTlo1X3d5LUI5ZAW1sUk5nQVRwNU83SzJNS3RTam4zcS02Rlo0RHJHTHB3WU5rcTFpMGRqdUN2ZAUdiSExNMU81ZAHBmX2dIa19EZAWFXMDNwNVFDVzI5aDhqZA2duQUluUEhRVlBQUgZDZD&fbclid=IwAR0xfT672qx4RdqeX7uTaBG6FmOrc7qqvdAEA6M3n3ackI-NWzfA9sqabNI");
@@ -168,6 +170,7 @@ foreach ($result['data'] as $photo) {
               <?php foreach ($photos as $photo) : ?>
                 <div class="ig-thumbnail mr-2">
                   <img src="<?= $photo; ?>">
+                  <iframe src="<?= $photo; ?>" frameborder="0"></iframe>
                 </div>
               <?php endforeach; ?>
             </div>
