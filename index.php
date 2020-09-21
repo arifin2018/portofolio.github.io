@@ -42,9 +42,9 @@ $FollowersIG = $result['graphql']['user']['edge_followed_by']['count'];
 
 //ambil foto
 $result = get_CURL("https://graph.instagram.com/me/media?fields=id%2Cmedia_url&access_token=IGQVJWRk5vY3hkYXdTTlo1X3d5LUI5ZAW1sUk5nQVRwNU83SzJNS3RTam4zcS02Rlo0RHJHTHB3WU5rcTFpMGRqdUN2ZAUdiSExNMU81ZAHBmX2dIa19EZAWFXMDNwNVFDVzI5aDhqZA2duQUluUEhRVlBQUgZDZD&fbclid=IwAR0xfT672qx4RdqeX7uTaBG6FmOrc7qqvdAEA6M3n3ackI-NWzfA9sqabNI");
-$ambilFoto = [];
+$photos = [];
 foreach ($result['data'] as $photo) {
-  $photos[] = $photo['permalink'];
+  $photos[] = $photo['media_url'];
 }
 ?>
 
@@ -167,7 +167,7 @@ foreach ($result['data'] as $photo) {
             <div class="col">
               <?php foreach ($photos as $photo) : ?>
                 <div class="ig-thumbnail mr-2">
-                  <img src="<?= "$photo;" ?>">
+                  <img src="<?= $photo; ?>">
                 </div>
               <?php endforeach; ?>
             </div>
