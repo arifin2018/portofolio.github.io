@@ -41,7 +41,7 @@ $profilePictureIG = $result['graphql']['user']['profile_pic_url_hd'];
 $FollowersIG = $result['graphql']['user']['edge_followed_by']['count'];
 
 //ambil foto
-$result = get_CURL("https://graph.instagram.com/17841400734365185/media?fields=permalink,username,account_type&access_token=IGQVJWRk5vY3hkYXdTTlo1X3d5LUI5ZAW1sUk5nQVRwNU83SzJNS3RTam4zcS02Rlo0RHJHTHB3WU5rcTFpMGRqdUN2ZAUdiSExNMU81ZAHBmX2dIa19EZAWFXMDNwNVFDVzI5aDhqZA2duQUluUEhRVlBQUgZDZD");
+$result = get_CURL("https://graph.instagram.com/me/media?fields=id%2Cmedia_url&access_token=IGQVJWRk5vY3hkYXdTTlo1X3d5LUI5ZAW1sUk5nQVRwNU83SzJNS3RTam4zcS02Rlo0RHJHTHB3WU5rcTFpMGRqdUN2ZAUdiSExNMU81ZAHBmX2dIa19EZAWFXMDNwNVFDVzI5aDhqZA2duQUluUEhRVlBQUgZDZD&fbclid=IwAR0xfT672qx4RdqeX7uTaBG6FmOrc7qqvdAEA6M3n3ackI-NWzfA9sqabNI");
 $ambilFoto = [];
 foreach ($result['data'] as $photo) {
   $photos[] = $photo['permalink'];
