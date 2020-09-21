@@ -134,7 +134,7 @@ foreach ($result['data'] as $photo) {
         <div class="col-md-5">
           <div class="row">
             <div class="col-md-4 mb-3">
-              <img src='<?php echo $YoutubeProfilePic ?>' width="550" class="rounded-circle img-thumbnail">
+              <img src="<?php echo $YoutubeProfilePic ?>" width=" 550" class="rounded-circle img-thumbnail">
             </div>
             <div class="col mb-1">
               <h5><?= $nameYT; ?></h5>
@@ -155,7 +155,7 @@ foreach ($result['data'] as $photo) {
         <div class="col-md-5">
           <div class="row">
             <div class="col-md-4 mb-3">
-              <img src=<?php echo $profilePictureIG ?> width="550" class="rounded-circle img-thumbnail">
+              <img src='<?php echo $profilePictureIG ?>' width="550" class="rounded-circle img-thumbnail">
             </div>
             <div class="col-md-8">
               <h5><?= $usernameIG ?></h5>
