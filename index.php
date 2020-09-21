@@ -33,8 +33,6 @@ $urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyADNGCf
 $result = get_CURL($urlLatestVideo);
 $latestVideoID = $result['items'][0]['id']['videoId'];
 
-$clientID = '332268804688169';
-$access_token = 'IGQVJWRk5vY3hkYXdTTlo1X3d5LUI5ZAW1sUk5nQVRwNU83SzJNS3RTam4zcS02Rlo0RHJHTHB3WU5rcTFpMGRqdUN2ZAUdiSExNMU81ZAHBmX2dIa19EZAWFXMDNwNVFDVzI5aDhqZA2duQUluUEhRVlBQUgZDZD';
 
 //ambil data username foto dan followers
 $result = get_CURL("https://www.instagram.com/nrarivin/?__a=1");
@@ -157,7 +155,7 @@ foreach ($result['data'] as $photo) {
         <div class="col-md-5">
           <div class="row">
             <div class="col-md-4 mb-3">
-              <img src=<?= $profilePictureIG ?> width="550" class="rounded-circle img-thumbnail">
+              <img src=<?php echo $profilePictureIG ?> width="550" class="rounded-circle img-thumbnail">
             </div>
             <div class="col-md-8">
               <h5><?= $usernameIG ?></h5>
