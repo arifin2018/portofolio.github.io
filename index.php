@@ -22,23 +22,26 @@ function get_CURL($url)
 }
 
 
-$result = get_CURL("https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UClLjSj3HkStDhICC2lr6zYQ&key=AIzaSyADNGCfNMjOkTXLA-Lyg4MEYe-4p2ZxAzw");
+// $result = get_CURL("https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UClLjSj3HkStDhICC2lr6zYQ&key=AIzaSyADNGCfNMjOkTXLA-Lyg4MEYe-4p2ZxAzw");
 
-$YoutubeProfilePic = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
-$nameYT = $result['items'][0]['snippet']['title'];
-$subscribeYT = $result['items'][0]['statistics']['subscriberCount'];
+// $YoutubeProfilePic = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
+// $nameYT = $result['items'][0]['snippet']['title'];
+// $subscribeYT = $result['items'][0]['statistics']['subscriberCount'];
 
-//latest video
-$urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyADNGCfNMjOkTXLA-Lyg4MEYe-4p2ZxAzw&channelId=UClLjSj3HkStDhICC2lr6zYQ&maxResults=1&order=date&part=snippet';
-$result = get_CURL($urlLatestVideo);
-$latestVideoID = $result['items'][0]['id']['videoId'];
+// //latest video
+// $urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyADNGCfNMjOkTXLA-Lyg4MEYe-4p2ZxAzw&channelId=UClLjSj3HkStDhICC2lr6zYQ&maxResults=1&order=date&part=snippet';
+// $result = get_CURL($urlLatestVideo);
+// $latestVideoID = $result['items'][0]['id']['videoId'];
 
 
 //ambil data username foto dan followers
-$result = get_CURL("https://www.instagram.com/nrarivin/?__a=1");
-$usernameIG = $result['graphql']['user']['username'];
-$profilePictureIG = $result['graphql']['user']['profile_pic_url_hd'];
-$FollowersIG = $result['graphql']['user']['edge_followed_by']['count'];
+$hasil = get_CURL("https://www.instagram.com/nrarivin/?__a=1");
+$usernameIG = $hasil['graphql']['user']['username'];
+$profilePictureIG = $hasil['graphql']['user']['profile_pic_url_hd'];
+$FollowersIG = $hasil['graphql']['user']['edge_followed_by']['count'];
+
+var_dump($hasil);
+die;
 
 //ambil foto
 $result = get_CURL("https://graph.instagram.com/me/media?fields=id,media_url,media_type&access_token=IGQVJWRk5vY3hkYXdTTlo1X3d5LUI5ZAW1sUk5nQVRwNU83SzJNS3RTam4zcS02Rlo0RHJHTHB3WU5rcTFpMGRqdUN2ZAUdiSExNMU81ZAHBmX2dIa19EZAWFXMDNwNVFDVzI5aDhqZA2duQUluUEhRVlBQUgZDZD&fbclid=IwAR0xfT672qx4RdqeX7uTaBG6FmOrc7qqvdAEA6M3n3ackI-NWzfA9sqabNI");
